@@ -6,13 +6,13 @@ namespace DataTransformerGenericExercise
     {
         static void Main(string[] args)
         {
-            var employee = new Employee(1, "Rokas", "Trecias departamentas");
+            var employee = new Employee("1", "Rokas", "Trecias departamentas");
             var invoice = new Invoice(1, DateTime.Now, 4);
 
 
-            var newObj = DataTransformer<Employee, AbstractSomething>.ToTransformedType(employee);
-
-            Console.WriteLine($"{newObj.});
+            var employeeTransformer = new DataTransformer<Employee, TransformedData>();
+            var transformedEmployee = employeeTransformer.Transform(employee);
+            Console.WriteLine(transformedEmployee.Data);
         }
     }
 }

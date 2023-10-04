@@ -20,13 +20,9 @@ namespace DataTransformerGenericExercise.Models
             Amount = amount;
         }
 
-        public object TransformToObject()
+        public ITransformable ToTransformedType()
         {
-            return new
-            {
-                objInvoiceNumber = InvoiceNumber,
-                objAmount = Amount
-            };
+            return new TransformedData { Data = $"{InvoiceNumber} - {Amount}" };
         }
     }
 }

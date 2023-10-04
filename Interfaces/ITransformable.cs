@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DataTransformerGenericExercise.Interfaces
 {
-    public interface ITransformable<T>
+    public interface ITransformable
     {
-        T TransformToObject();
+        ITransformable ToTransformedType();
     }
 }

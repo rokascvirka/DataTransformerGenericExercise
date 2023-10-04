@@ -9,24 +9,20 @@ namespace DataTransformerGenericExercise.Models
 {
     public class Employee : ITransformable
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Departament { get; set; }
 
-        public Employee(int id, string name, string department)
+        public Employee(string id, string name, string departament)
         {
             Id = id;
             Name = name;
-            Departament = department;
+            Departament = departament;
         }
 
-        public object TransformToObject()
+        public ITransformable ToTransformedType()
         {
-            return new
-            {
-                objName = Name,
-                objDepartament = Departament
-            };
+            return new TransformedData { Data = $"{Id} - {Name}" };
         }
     }
 }
