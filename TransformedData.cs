@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DataTransformerGenericExercise
 {
-    public class TransformedData : ITransformable
+    public class TransformedData
     {
         public string Data { get; set; }
-        public ITransformable ToTransformedType()
+        public TransformedData ToTransformedType()
         {
             return this;
         }

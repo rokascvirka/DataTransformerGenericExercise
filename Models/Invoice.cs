@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataTransformerGenericExercise.Models
 {
-    public class Invoice : ITransformable
+    public class Invoice : ITransformable<TransformedData>
     {
         public int InvoiceNumber { get; set; }
         public DateTime Date { get; set; }
@@ -20,7 +20,7 @@ namespace DataTransformerGenericExercise.Models
             Amount = amount;
         }
 
-        public ITransformable ToTransformedType()
+        public TransformedData ToTransformedType()
         {
             return new TransformedData { Data = $"{InvoiceNumber} - {Amount}" };
         }

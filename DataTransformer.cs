@@ -9,12 +9,12 @@ using System.Transactions;
 
 namespace DataTransformerGenericExercise
 {
-    public class DataTransformer<TInput, TOutput>   where TInput: ITransformable
-                                                    where TOutput : ITransformable
+    public class DataTransformer<TInput, TOutput>   where TInput: ITransformable<TransformedData>
+                                                    where TOutput : ITransformable<TransformedData>
     {
-        public TOutput Transform(TInput inputData)
+        public TransformedData Transform(TInput inputData)
         {
-            return (TOutput)inputData.ToTransformedType();
+            return inputData.ToTransformedType();
         }
     }
 }

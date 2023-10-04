@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataTransformerGenericExercise.Models
 {
-    public class Employee : ITransformable
+    public class Employee : ITransformable<TransformedData>
     {
         public string Id { get; set; }
         public string Name { get; set; }
@@ -20,7 +20,7 @@ namespace DataTransformerGenericExercise.Models
             Departament = departament;
         }
 
-        public ITransformable ToTransformedType()
+        public TransformedData ToTransformedType()
         {
             return new TransformedData { Data = $"{Id} - {Name}" };
         }
